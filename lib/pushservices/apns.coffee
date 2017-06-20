@@ -1,4 +1,5 @@
 apns = require 'apn'
+util = require 'util'
 
 class PushServiceAPNS
     tokenFormat: /^[0-9a-f]{64}$/i
@@ -8,7 +9,7 @@ class PushServiceAPNS
 
     constructor: (conf, @logger, tokenResolver) ->
         conf.errorCallback = (errCode, note) =>
-            @logger?.error("APNS Error #{errCode}: #{note}")
+            @logger?.error("APNS Error #{util.inspect(errCode)}: #{util.inspect(note)}")
 
         # The APN library decided to change the default version of those variables in 1.5.1
         # Maintain the previous defaults in order not to break backward compat.
@@ -17,7 +18,7 @@ class PushServiceAPNS
         @driver = new apns.Connection(conf)
 
         @payloadFilter = conf.payloadFilter
-        
+
         @conf = conf
 
         @feedback = new apns.Feedback(conf)
@@ -43,7 +44,7 @@ class PushServiceAPNS
             badge = parseInt(payload.badge || info.badge)
             if payload.incrementBadge
                 badge += 1
-            
+
             category = payload.category
             contentAvailable = payload.contentAvailable
 
