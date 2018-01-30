@@ -9,7 +9,7 @@ class PushServiceAPNS
 
     constructor: (conf, @logger, tokenResolver) ->
         conf.errorCallback = (errCode, note) =>
-            @logger?.error("APNS Error #{util.inspect(errCode)}: #{util.inspect(note)} #{util.inspect(conf)}")
+            @logger?.error("APNS Error #{util.inspect(errCode)}: #{util.inspect(note)} #{util.inspect(conf.cert)}")
 
         # The APN library decided to change the default version of those variables in 1.5.1
         # Maintain the previous defaults in order not to break backward compat.
