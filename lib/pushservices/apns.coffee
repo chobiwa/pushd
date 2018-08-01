@@ -38,11 +38,8 @@ class PushServiceAPNS
             note = new apns.Notification()
             device = new apns.Device(info.token)
             device.subscriberId = subscriber.id # used for error logging
-            note.alert = {}
-            if title = payload.localizedTitle(info.lang)
-              note.alert['title'] = title
-            if subOptions?.ignore_message isnt true and body = payload.localizedMessage(info.lang)
-                note.alert['body'] = body
+            if subOptions?.ignore_message isnt true and alert = payload.localizedMessage(info.lang)
+                note.alert = alert
 
             badge = parseInt(payload.badge || info.badge)
             if payload.incrementBadge
