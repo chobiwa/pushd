@@ -30,6 +30,7 @@
     },
     "dependencies":
     {
+        "forever": "latest",
         "coffee-script": "~1.8.0",
         "apn": "1.7.3",
         "c2dm": "1.2.1",
