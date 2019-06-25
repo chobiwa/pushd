@@ -259,10 +259,10 @@ class Subscriber
                     wasRemoved = results[1] is 1 # true if removed, false if wasn't subscribed
                     if wasRemoved
                         logger.verbose "Subscriber #{@id} unregistered from event #{event.name}"
-                    cb(null) if cb
+                    cb(true) if cb
                 else
                     logger.verbose "Subscriber #{@id} doesn't exist"
-                    cb("Not exists") if cb # null if subscriber doesn't exist
+                    cb(null) if cb # null if subscriber doesn't exist
 
 
 exports.Subscriber = Subscriber
