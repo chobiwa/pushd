@@ -36,7 +36,7 @@
     "dependencies": {
         "forever": "latest",
         "coffee-script": "~1.8.0",
-        "apn": "1.7.3",
+        "apn": "1.7.8",
         "c2dm": "1.2.1",
         "node-gcm": "0.14.1",
         "mpns": "2.1.0",
