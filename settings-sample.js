@@ -75,4 +75,4 @@ exports.logging = [{
             level: 'info'
         }
     }
-    ];
+];
