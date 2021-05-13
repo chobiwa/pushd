@@ -58,7 +58,7 @@ const createSubscriber = function (fields, cb) {
     `creating subscriber proto = ${fields.proto}, token = ${fields.token}`
   )
   if (!(service = pushServices.getService(fields.proto))) {
-    throw new Error("Invalid value for `proto'")
+    throw new Error("Invalid value for 'proto':" + fields.proto)
   }
   if (!(fields.token = service.validateToken(fields.token))) {
     throw new Error("Invalid value for `token'")
