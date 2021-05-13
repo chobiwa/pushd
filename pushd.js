@@ -77,8 +77,7 @@ for (let name in settings) {
     try {
       pushServices.addService(name, new conf.class(conf, logger, tokenResolver))
     } catch (error) {
-      logger.error('Failed registering: ', name)
-      logger.error(error.stack)
+      logger.error(`Failed registering: ${error.message}: ${name}`)
     }
   }
 }
