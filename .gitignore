@@ -2,3 +2,6 @@ node_modules/
 settings.js
 *.pem
 *.swp
+node
+.idea
+service-account-pkey.json
